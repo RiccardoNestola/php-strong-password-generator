@@ -10,6 +10,21 @@
 
 <body>
 
+
+
+    <main>
+        <form action="index.php" method="get">
+            <label for="passwordLength">Inserisci la lunghezza della tua password:</label>
+            <input type="number" name="passwordLength">
+            <button type="submit">Genera</button>
+        </form>
+
+
+
+
+
+    </main>
+
 </body>
 
 </html>
