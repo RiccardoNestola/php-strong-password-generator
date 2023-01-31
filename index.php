@@ -14,10 +14,35 @@
 
     <main>
         <form action="index.php" method="get">
-            <label for="passwordLength">Inserisci la lunghezza della tua password:</label>
-            <input type="number" name="passwordLength">
-            <button type="submit">Genera</button>
+            <label for="passwordLength">Inserisci la lunghezza della password:</label>
+            <input type="number" id="passwordLength" name="passwordLength">
+            <input type="submit" value="Genera password">
         </form>
+
+
+
+        <?php
+        function generatePassword($length)
+        {
+            $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=';
+            $password = '';
+            for ($i = 0; $i < $length; $i++) {
+                $password .= $characters[rand(0, strlen($characters) - 1)];
+            }
+            return $password;
+        }
+
+
+        ?>
+
+        <?php
+        if (isset($_GET['passwordLength'])) {
+            $passwordLength = $_GET['passwordLength'];
+            $password = generatePassword($passwordLength);
+            echo "La tua password è: " . $password;
+        }
+
+        ?>
 
 
 
